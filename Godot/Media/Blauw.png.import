@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Blauw.png-c69a53716689a2f9aaeb4c9b3fac8c1f.stex"
+path="res://.import/Blauw.png-0669d7ae3225dd4a29372e1f0833b992.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Blauw.png"
-dest_files=[ "res://.import/Blauw.png-c69a53716689a2f9aaeb4c9b3fac8c1f.stex" ]
+source_file="res://Media/Blauw.png"
+dest_files=[ "res://.import/Blauw.png-0669d7ae3225dd4a29372e1f0833b992.stex" ]
 
 [params]
 

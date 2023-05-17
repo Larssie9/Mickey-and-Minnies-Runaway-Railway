@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Draaischakelaar2.png-fab71d7979d2b44878d252b3e0819786.stex"
+path="res://.import/Draaischakelaar2.png-bcd065681a4d24a8c833b24695d6719a.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Draaischakelaar2.png"
-dest_files=[ "res://.import/Draaischakelaar2.png-fab71d7979d2b44878d252b3e0819786.stex" ]
+source_file="res://Media/Draaischakelaar2.png"
+dest_files=[ "res://.import/Draaischakelaar2.png-bcd065681a4d24a8c833b24695d6719a.stex" ]
 
 [params]
 

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Runaway-Railway-layout09-690x460-1.png-6b523a02ebcdd7e645e969cb1bf38d9f.stex"
+path="res://.import/GroenVerlicht.png-fbd7608b81d875c2cbc532559cea65b5.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Media/Runaway-Railway-layout09-690x460-1.png"
-dest_files=[ "res://.import/Runaway-Railway-layout09-690x460-1.png-6b523a02ebcdd7e645e969cb1bf38d9f.stex" ]
+source_file="res://Media/GroenVerlicht.png"
+dest_files=[ "res://.import/GroenVerlicht.png-fbd7608b81d875c2cbc532559cea65b5.stex" ]
 
 [params]
 
