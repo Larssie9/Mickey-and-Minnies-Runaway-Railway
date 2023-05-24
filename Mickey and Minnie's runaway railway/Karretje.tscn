@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Media/KarretjedDicht.png" type="Texture" id=1]
+[ext_resource path="res://Media/Karretje.png" type="Texture" id=2]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 1 ) ],
+"loop": true,
+"name": "Open",
+"speed": 1.0
+} ]
+
+[node name="Karretje" type="AnimatedSprite"]
+frames = SubResource( 1 )
+animation = "Open"
