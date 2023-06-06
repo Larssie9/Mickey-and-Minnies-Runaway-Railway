@@ -13,6 +13,11 @@ var _poortjes = true
 var _station = true
 var _uitstation = true
 var _unloadbeugels = false
+var laadtrein = 2
+var uitlaadtrein = 1
+
+signal stationvrijgeven
+signal uitstationvrijgeven
 
 func _on_SetupTimer_timeout():
 	pass
@@ -38,6 +43,17 @@ func _on_LoadVrijgeven2_button_up():
 
 func _on_LoadBeugels_pressed():
 	_loadbeugels = true
+	print("beugels")
+	if (laadtrein == 1):
+		$Path2D/T1V1/Voertuig.frame = 1
+		$Path2D/T1V2/Voertuig.frame = 1
+		$Path2D/T1V3/Voertuig.frame = 1
+		$Path2D/T1V4/Voertuig.frame = 1
+	if (laadtrein == 2):
+		$Path2D/T2V1/Voertuig.frame = 1
+		$Path2D/T2V2/Voertuig.frame = 1
+		$Path2D/T2V3/Voertuig.frame = 1
+		$Path2D/T2V4/Voertuig.frame = 1
 
 func _on_LoadPoortjes_pressed():
 	if poortjes == "dicht":
@@ -45,12 +61,14 @@ func _on_LoadPoortjes_pressed():
 		$Map/LoadPoortjes.texture_normal = icon2
 		poortjes = "open"
 		yield($DelayTimer, "timeout")
+		_poortjes = false
 		
 	if poortjes == "open":
 		print("LoadPoortjesDicht")
 		poortjes = "dicht"
 		$Map/LoadPoortjes.texture_normal = icon1
 		yield($DelayTimer, "timeout")
+		_poortjes = true
 
 
 func _on_TextureButton_toggled(button_pressed):
@@ -78,6 +96,16 @@ func _on_Button_pressed():
 
 func _on_UnloadBeugels_pressed():
 	_unloadbeugels = true
+	if (uitlaadtrein == 1):
+		$Path2D/T1V1/Voertuig.frame = 0
+		$Path2D/T1V2/Voertuig.frame = 0
+		$Path2D/T1V3/Voertuig.frame = 0
+		$Path2D/T1V4/Voertuig.frame = 0
+	if (uitlaadtrein == 2):
+		$Path2D/T2V1/Voertuig.frame = 0
+		$Path2D/T2V2/Voertuig.frame = 0
+		$Path2D/T2V3/Voertuig.frame = 0
+		$Path2D/T2V4/Voertuig.frame = 0
 
 func _on_UnloadVrijgeven1_button_down():
 	print("LoadVrijgeven1")
@@ -98,9 +126,16 @@ func _on_UnloadVrijgeven2_button_up():
 	$Map/UnloadVrijgeven1.texture_normal = groen
 
 func _vrijgeven():
-	if (_loadbeugels && _poortjes):
-		_golaad1 = true
-
+	if ((_loadbeugels == true) && (_poortjes == true)):
+		emit_signal("stationvrijgeven")
+		_loadbeugels = false
+		laadtrein =+ 1
+		if (laadtrein == 3):
+			laadtrein = 1
 func _unloadvrijgeven():
 	if _unloadbeugels:
-		_gouitlaad1 = true
+		emit_signal("uitstationvrijgeven")
+		_unloadbeugels = false
+		uitlaadtrein =+ 1
+		if (uitlaadtrein == 3):
+			uitlaadtrein = 1

@@ -105,11 +105,12 @@ margin_bottom = 269.0
 texture_normal = ExtResource( 3 )
 texture_pressed = ExtResource( 6 )
 
-[node name="DelayTimer" type="Timer" parent="."]
-
 [node name="SetupTimer" type="Timer" parent="."]
 one_shot = true
 autostart = true
+
+[node name="DelayTimer" type="Timer" parent="."]
+wait_time = 3.0
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 13 )
@@ -168,6 +169,7 @@ rotation = -1.58761
 rotation = 1.5708
 frames = SubResource( 2 )
 animation = "open"
+frame = 1
 
 [node name="T1V2" type="PathFollow2D" parent="Path2D"]
 position = Vector2( 1467, 978 )
@@ -177,6 +179,7 @@ rotation = -1.58761
 rotation = 1.5708
 frames = SubResource( 2 )
 animation = "open"
+frame = 1
 
 [node name="T1V3" type="PathFollow2D" parent="Path2D"]
 position = Vector2( 1467, 978 )
@@ -186,6 +189,7 @@ rotation = -1.58761
 rotation = 1.5708
 frames = SubResource( 2 )
 animation = "open"
+frame = 1
 
 [node name="T1V4" type="PathFollow2D" parent="Path2D"]
 position = Vector2( 1467, 978 )
@@ -195,6 +199,7 @@ rotation = -1.58761
 rotation = 1.5708
 frames = SubResource( 2 )
 animation = "open"
+frame = 1
 
 [node name="T1VL" type="PathFollow2D" parent="Path2D"]
 position = Vector2( 1467, 978 )
@@ -204,6 +209,52 @@ rotation = -1.58761
 rotation = 1.5708
 texture = ExtResource( 15 )
 
+[node name="T2V1" type="PathFollow2D" parent="Path2D"]
+position = Vector2( 1467, 978 )
+rotation = -1.58761
+
+[node name="Voertuig" type="AnimatedSprite" parent="Path2D/T2V1"]
+rotation = 1.5708
+frames = SubResource( 2 )
+animation = "open"
+
+[node name="T2V2" type="PathFollow2D" parent="Path2D"]
+position = Vector2( 1467, 978 )
+rotation = -1.58761
+
+[node name="Voertuig" type="AnimatedSprite" parent="Path2D/T2V2"]
+rotation = 1.5708
+frames = SubResource( 2 )
+animation = "open"
+
+[node name="T2V3" type="PathFollow2D" parent="Path2D"]
+position = Vector2( 1467, 978 )
+rotation = -1.58761
+
+[node name="Voertuig" type="AnimatedSprite" parent="Path2D/T2V3"]
+rotation = 1.5708
+frames = SubResource( 2 )
+animation = "open"
+
+[node name="T2V4" type="PathFollow2D" parent="Path2D"]
+position = Vector2( 1467, 978 )
+rotation = -1.58761
+
+[node name="Voertuig" type="AnimatedSprite" parent="Path2D/T2V4"]
+rotation = 1.5708
+frames = SubResource( 2 )
+animation = "open"
+
+[node name="T2VL" type="PathFollow2D" parent="Path2D"]
+position = Vector2( 1467, 978 )
+rotation = -1.58761
+
+[node name="Sprite" type="Sprite" parent="Path2D/T2VL"]
+rotation = 1.5708
+texture = ExtResource( 15 )
+
+[connection signal="stationvrijgeven" from="." to="Path2D" method="_on_Main_stationvrijgeven"]
+[connection signal="uitstationvrijgeven" from="." to="Path2D" method="_on_Main_uitstationvrijgeven"]
 [connection signal="button_down" from="Map/UnloadVrijgeven1" to="." method="_on_UnloadVrijgeven1_button_down"]
 [connection signal="button_up" from="Map/UnloadVrijgeven1" to="." method="_on_UnloadVrijgeven1_button_up"]
 [connection signal="button_down" from="Map/UnloadVrijgeven2" to="." method="_on_UnloadVrijgeven2_button_down"]
@@ -218,6 +269,7 @@ texture = ExtResource( 15 )
 [connection signal="pressed" from="Map/Button" to="Instellingen" method="_on_Button_pressed"]
 [connection signal="pressed" from="Map/UnloadBeugels" to="." method="_on_UnloadBeugels_pressed"]
 [connection signal="timeout" from="SetupTimer" to="." method="_on_SetupTimer_timeout"]
+[connection signal="timeout" from="DelayTimer" to="Path2D" method="_on_DelayTimer_timeout"]
 [connection signal="toggled" from="Instellingen/TextureButton" to="." method="_on_TextureButton_toggled"]
 [connection signal="toggled" from="Instellingen/TextureButton" to="." method="_on_TextureButtonuit_toggled"]
 [connection signal="pressed" from="Instellingen/InstellingenSpel" to="." method="_on_InstellingenSpel_pressed"]
