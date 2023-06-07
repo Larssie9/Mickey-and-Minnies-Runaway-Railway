@@ -38,6 +38,9 @@ script = ExtResource( 2 )
 [node name="Map" type="Sprite" parent="."]
 position = Vector2( 1256, 813 )
 texture = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="UnloadVrijgeven1" type="TextureButton" parent="Map"]
 margin_left = 584.0
@@ -155,6 +158,7 @@ margin_bottom = 235.0
 text = "Sluiten"
 
 [node name="Path2D" type="Path2D" parent="."]
+visible = false
 curve = SubResource( 1 )
 script = ExtResource( 12 )
 __meta__ = {
@@ -217,6 +221,7 @@ rotation = -1.58761
 rotation = 1.5708
 frames = SubResource( 2 )
 animation = "open"
+frame = 1
 
 [node name="T2V2" type="PathFollow2D" parent="Path2D"]
 position = Vector2( 1467, 978 )
@@ -226,6 +231,7 @@ rotation = -1.58761
 rotation = 1.5708
 frames = SubResource( 2 )
 animation = "open"
+frame = 1
 
 [node name="T2V3" type="PathFollow2D" parent="Path2D"]
 position = Vector2( 1467, 978 )
@@ -235,6 +241,7 @@ rotation = -1.58761
 rotation = 1.5708
 frames = SubResource( 2 )
 animation = "open"
+frame = 1
 
 [node name="T2V4" type="PathFollow2D" parent="Path2D"]
 position = Vector2( 1467, 978 )
@@ -244,6 +251,7 @@ rotation = -1.58761
 rotation = 1.5708
 frames = SubResource( 2 )
 animation = "open"
+frame = 1
 
 [node name="T2VL" type="PathFollow2D" parent="Path2D"]
 position = Vector2( 1467, 978 )
@@ -252,6 +260,148 @@ rotation = -1.58761
 [node name="Sprite" type="Sprite" parent="Path2D/T2VL"]
 rotation = 1.5708
 texture = ExtResource( 15 )
+
+[node name="T3V1" type="PathFollow2D" parent="Path2D"]
+position = Vector2( 1467, 978 )
+rotation = -1.58761
+
+[node name="Voertuig" type="AnimatedSprite" parent="Path2D/T3V1"]
+rotation = 1.5708
+frames = SubResource( 2 )
+animation = "open"
+frame = 1
+
+[node name="T3V2" type="PathFollow2D" parent="Path2D"]
+position = Vector2( 1467, 978 )
+rotation = -1.58761
+
+[node name="Voertuig" type="AnimatedSprite" parent="Path2D/T3V2"]
+rotation = 1.5708
+frames = SubResource( 2 )
+animation = "open"
+frame = 1
+
+[node name="T3V3" type="PathFollow2D" parent="Path2D"]
+position = Vector2( 1467, 978 )
+rotation = -1.58761
+
+[node name="Voertuig" type="AnimatedSprite" parent="Path2D/T3V3"]
+rotation = 1.5708
+frames = SubResource( 2 )
+animation = "open"
+frame = 1
+
+[node name="T3V4" type="PathFollow2D" parent="Path2D"]
+position = Vector2( 1467, 978 )
+rotation = -1.58761
+
+[node name="Voertuig" type="AnimatedSprite" parent="Path2D/T3V4"]
+rotation = 1.5708
+frames = SubResource( 2 )
+animation = "open"
+frame = 1
+
+[node name="T3VL" type="PathFollow2D" parent="Path2D"]
+position = Vector2( 1467, 978 )
+rotation = -1.58761
+
+[node name="Sprite" type="Sprite" parent="Path2D/T3VL"]
+rotation = 1.5708
+texture = ExtResource( 15 )
+
+[node name="T4V1" type="PathFollow2D" parent="Path2D"]
+position = Vector2( 1467, 978 )
+rotation = -1.58761
+
+[node name="Voertuig" type="AnimatedSprite" parent="Path2D/T4V1"]
+rotation = 1.5708
+frames = SubResource( 2 )
+animation = "open"
+frame = 1
+
+[node name="T4V2" type="PathFollow2D" parent="Path2D"]
+position = Vector2( 1467, 978 )
+rotation = -1.58761
+
+[node name="Voertuig" type="AnimatedSprite" parent="Path2D/T4V2"]
+rotation = 1.5708
+frames = SubResource( 2 )
+animation = "open"
+frame = 1
+
+[node name="T4V3" type="PathFollow2D" parent="Path2D"]
+position = Vector2( 1467, 978 )
+rotation = -1.58761
+
+[node name="Voertuig" type="AnimatedSprite" parent="Path2D/T4V3"]
+rotation = 1.5708
+frames = SubResource( 2 )
+animation = "open"
+frame = 1
+
+[node name="T4V4" type="PathFollow2D" parent="Path2D"]
+position = Vector2( 1467, 978 )
+rotation = -1.58761
+
+[node name="Voertuig" type="AnimatedSprite" parent="Path2D/T4V4"]
+rotation = 1.5708
+frames = SubResource( 2 )
+animation = "open"
+frame = 1
+
+[node name="T4VL" type="PathFollow2D" parent="Path2D"]
+position = Vector2( 1467, 978 )
+rotation = -1.58761
+
+[node name="Sprite" type="Sprite" parent="Path2D/T4VL"]
+rotation = 1.5708
+texture = ExtResource( 15 )
+
+[node name="T5V1" type="PathFollow2D" parent="Path2D"]
+position = Vector2( 1467, 978 )
+rotation = -1.58761
+
+[node name="Voertuig" type="AnimatedSprite" parent="Path2D/T5V1"]
+rotation = 1.5708
+frames = SubResource( 2 )
+animation = "open"
+
+[node name="T5V2" type="PathFollow2D" parent="Path2D"]
+position = Vector2( 1467, 978 )
+rotation = -1.58761
+
+[node name="Voertuig" type="AnimatedSprite" parent="Path2D/T5V2"]
+rotation = 1.5708
+frames = SubResource( 2 )
+animation = "open"
+
+[node name="T5V3" type="PathFollow2D" parent="Path2D"]
+position = Vector2( 1467, 978 )
+rotation = -1.58761
+
+[node name="Voertuig" type="AnimatedSprite" parent="Path2D/T5V3"]
+rotation = 1.5708
+frames = SubResource( 2 )
+animation = "open"
+
+[node name="T5V4" type="PathFollow2D" parent="Path2D"]
+position = Vector2( 1467, 978 )
+rotation = -1.58761
+
+[node name="Voertuig" type="AnimatedSprite" parent="Path2D/T5V4"]
+rotation = 1.5708
+frames = SubResource( 2 )
+animation = "open"
+
+[node name="T5VL" type="PathFollow2D" parent="Path2D"]
+position = Vector2( 1467, 978 )
+rotation = -1.58761
+
+[node name="Sprite" type="Sprite" parent="Path2D/T5VL"]
+rotation = 1.5708
+texture = ExtResource( 15 )
+
+[node name="Poortjes" type="Node2D" parent="."]
 
 [connection signal="stationvrijgeven" from="." to="Path2D" method="_on_Main_stationvrijgeven"]
 [connection signal="uitstationvrijgeven" from="." to="Path2D" method="_on_Main_uitstationvrijgeven"]

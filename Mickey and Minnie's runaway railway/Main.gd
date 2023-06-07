@@ -13,7 +13,7 @@ var _poortjes = true
 var _station = true
 var _uitstation = true
 var _unloadbeugels = false
-var laadtrein = 2
+var laadtrein = 5
 var uitlaadtrein = 1
 
 signal stationvrijgeven
@@ -54,6 +54,21 @@ func _on_LoadBeugels_pressed():
 		$Path2D/T2V2/Voertuig.frame = 1
 		$Path2D/T2V3/Voertuig.frame = 1
 		$Path2D/T2V4/Voertuig.frame = 1
+	if (laadtrein == 3):
+		$Path2D/T3V1/Voertuig.frame = 1
+		$Path2D/T3V2/Voertuig.frame = 1
+		$Path2D/T3V3/Voertuig.frame = 1
+		$Path2D/T3V4/Voertuig.frame = 1
+	if (laadtrein == 4):
+		$Path2D/T4V1/Voertuig.frame = 1
+		$Path2D/T4V2/Voertuig.frame = 1
+		$Path2D/T4V3/Voertuig.frame = 1
+		$Path2D/T4V4/Voertuig.frame = 1
+	if (laadtrein == 5):
+		$Path2D/T5V1/Voertuig.frame = 1
+		$Path2D/T5V2/Voertuig.frame = 1
+		$Path2D/T5V3/Voertuig.frame = 1
+		$Path2D/T5V4/Voertuig.frame = 1
 
 func _on_LoadPoortjes_pressed():
 	if poortjes == "dicht":
@@ -106,6 +121,21 @@ func _on_UnloadBeugels_pressed():
 		$Path2D/T2V2/Voertuig.frame = 0
 		$Path2D/T2V3/Voertuig.frame = 0
 		$Path2D/T2V4/Voertuig.frame = 0
+	if (uitlaadtrein == 3):
+		$Path2D/T3V1/Voertuig.frame = 0
+		$Path2D/T3V2/Voertuig.frame = 0
+		$Path2D/T3V3/Voertuig.frame = 0
+		$Path2D/T3V4/Voertuig.frame = 0
+	if (uitlaadtrein == 4):
+		$Path2D/T4V1/Voertuig.frame = 0
+		$Path2D/T4V2/Voertuig.frame = 0
+		$Path2D/T4V3/Voertuig.frame = 0
+		$Path2D/T4V4/Voertuig.frame = 0
+	if (uitlaadtrein == 5):
+		$Path2D/T5V1/Voertuig.frame = 0
+		$Path2D/T5V2/Voertuig.frame = 0
+		$Path2D/T5V3/Voertuig.frame = 0
+		$Path2D/T5V4/Voertuig.frame = 0
 
 func _on_UnloadVrijgeven1_button_down():
 	print("LoadVrijgeven1")
@@ -130,12 +160,12 @@ func _vrijgeven():
 		emit_signal("stationvrijgeven")
 		_loadbeugels = false
 		laadtrein =+ 1
-		if (laadtrein == 3):
+		if (laadtrein == 6):
 			laadtrein = 1
 func _unloadvrijgeven():
 	if _unloadbeugels:
 		emit_signal("uitstationvrijgeven")
 		_unloadbeugels = false
 		uitlaadtrein =+ 1
-		if (uitlaadtrein == 3):
+		if (uitlaadtrein == 6):
 			uitlaadtrein = 1
