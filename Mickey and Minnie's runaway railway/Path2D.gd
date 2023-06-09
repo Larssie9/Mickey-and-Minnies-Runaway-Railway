@@ -5,11 +5,11 @@ var _go2 = true
 var _go3 = true
 var _go4 = true
 var _go5 = true
-var t1 = 80
-var t2 = 60
-var t3 = 40
-var t4 = 20
-var t5 = 0
+var t1 = 130
+var t2 = 120
+var t3 = 110
+var t4 = 100
+var t5 = 1
 var offset1 = 0
 var offset2 = 0
 var offset3 = 0
@@ -78,9 +78,9 @@ func _process(delta):
 	if ((_uitstation1 == false) && (_uitstationvrijgeven == true)):
 		_go1 = true
 		_uitstationvrijgeven = false
-		emit_signal("vertrekuitlaad")
-	if ((offset1 >= 3370)&&(offset1 <= 3380)):
+	if ((offset1 >= 3380)&&(offset1 <= 3390)):
 		_uitstation1 = true
+		emit_signal("vertrekuitlaad")
 	## Trein 2
 	if _go2:
 		t2 += delta
@@ -104,6 +104,7 @@ func _process(delta):
 	if (((offset2 >= 72)&&(offset2 <= 82))&&_station2):
 		_station2 = false
 		_go2 = false
+		emit_signal("aankomstlaad")
 	if ((_station2 == false) && (_stationvrijgeven == true)):
 		_go2 = true
 		_stationvrijgeven = false
@@ -114,12 +115,13 @@ func _process(delta):
 	if (((offset2 >= 3350)&&(offset2 <= 3360))&&_uitstation2):
 		_uitstation2 = false
 		_go2 = false
-		emit_signal("vertrekuitlaad")
+		emit_signal("aankomstuitlaad")
 	if ((_uitstation2 == false) && (_uitstationvrijgeven == true)):
 		_go2 = true
 		_uitstationvrijgeven = false
-	if ((offset2 >= 3370)&&(offset2 <= 3380)):
+	if ((offset2 >= 3380)&&(offset2 <= 3390)):
 		_uitstation2 = true
+		emit_signal("vertrekuitlaad")
 	##Trein 3
 	if _go3:
 		t3 += delta
@@ -143,6 +145,7 @@ func _process(delta):
 	if (((offset3 >= 72)&&(offset3 <= 82))&&_station3):
 		_station3 = false
 		_go3 = false
+		emit_signal("aankomstlaad")
 	if ((_station3 == false) && (_stationvrijgeven == true)):
 		_go3 = true
 		_stationvrijgeven = false
@@ -153,12 +156,13 @@ func _process(delta):
 	if (((offset3 >= 3350)&&(offset3 <= 3360))&&_uitstation3):
 		_uitstation3 = false
 		_go3 = false
-		emit_signal("vertrekuitlaad")
+		emit_signal("aankomstuitlaad")
 	if ((_uitstation3 == false) && (_uitstationvrijgeven == true)):
 		_go3 = true
 		_uitstationvrijgeven = false
-	if ((offset3 >= 3370)&&(offset3 <= 3380)):
+	if ((offset3 >= 3380)&&(offset3 <= 3390)):
 		_uitstation3 = true
+		emit_signal("vertrekuitlaad")
 	##Trein 4
 	if _go4:
 		t4 += delta
@@ -182,6 +186,7 @@ func _process(delta):
 	if (((offset4 >= 72)&&(offset4 <= 82))&&_station4):
 		_station4 = false
 		_go4 = false
+		emit_signal("aankomstlaad")
 	if ((_station4 == false) && (_stationvrijgeven == true)):
 		_go4 = true
 		_stationvrijgeven = false
@@ -192,12 +197,13 @@ func _process(delta):
 	if (((offset4 >= 3350)&&(offset4 <= 3360))&&_uitstation4):
 		_uitstation4 = false
 		_go4 = false
-		emit_signal("vertrekuitlaad")
+		emit_signal("aankomstuitlaad")
 	if ((_uitstation4 == false) && (_uitstationvrijgeven == true)):
 		_go4 = true
 		_uitstationvrijgeven = false
 	if ((offset4 >= 3370)&&(offset4 <= 3380)):
 		_uitstation4 = true
+		emit_signal("vertrekuitlaad")
 	##trein 5
 	if _go5:
 		t5 += delta
@@ -221,6 +227,7 @@ func _process(delta):
 	if (((offset5 >= 72)&&(offset5 <= 92))&&_station5):
 		_station5 = false
 		_go5 = false
+		emit_signal("aankomstlaad")
 	if ((_station5 == false) && (_stationvrijgeven == true)):
 		_go5 = true
 		_stationvrijgeven = false
@@ -231,9 +238,10 @@ func _process(delta):
 	if (((offset5 >= 3350)&&(offset5 <= 3360))&&_uitstation5):
 		_uitstation5 = false
 		_go5 = false
-		emit_signal("vertrekuitlaad")
+		emit_signal("aankomstuitlaad")
 	if ((_uitstation5 == false) && (_uitstationvrijgeven == true)):
 		_go5 = true
 		_uitstationvrijgeven = false
 	if ((offset5 >= 3370) && (offset5 <= 3380)):
 		_uitstation5 = true
+		emit_signal("vertrekuitlaad")
