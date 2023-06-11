@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=39 format=2]
 
 [ext_resource path="res://Media/Runaway-Railway-layout09-690x460-1.png" type="Texture" id=1]
 [ext_resource path="res://Main.gd" type="Script" id=2]
@@ -18,6 +18,47 @@
 [ext_resource path="res://Media/InstellingenKnop.png" type="Texture" id=16]
 [ext_resource path="res://Media/Karretje.png" type="Texture" id=17]
 [ext_resource path="res://Media/Poortje.png" type="Texture" id=18]
+[ext_resource path="res://Media/Sluiten.png" type="Texture" id=19]
+[ext_resource path="res://Media/InstellingenShortcuts.png" type="Texture" id=20]
+[ext_resource path="res://Media/Indienen.png" type="Texture" id=21]
+[ext_resource path="res://Media/Einde.png" type="Texture" id=22]
+[ext_resource path="res://Media/Xolonium-Regular.ttf" type="DynamicFontData" id=23]
+
+[sub_resource type="InputEventAction" id=3]
+action = "uitlaadvrijgeven"
+
+[sub_resource type="ShortCut" id=4]
+shortcut = SubResource( 3 )
+
+[sub_resource type="InputEventAction" id=9]
+action = "beugelsdicht"
+
+[sub_resource type="ShortCut" id=10]
+shortcut = SubResource( 9 )
+
+[sub_resource type="InputEventAction" id=11]
+action = "laadvrijgeven"
+
+[sub_resource type="ShortCut" id=12]
+shortcut = SubResource( 11 )
+
+[sub_resource type="InputEventAction" id=13]
+action = "beugelsopen"
+
+[sub_resource type="ShortCut" id=14]
+shortcut = SubResource( 13 )
+
+[sub_resource type="InputEventAction" id=7]
+action = "poortjesopen"
+
+[sub_resource type="ShortCut" id=8]
+shortcut = SubResource( 7 )
+
+[sub_resource type="InputEventAction" id=5]
+action = "poortjesdicht"
+
+[sub_resource type="ShortCut" id=6]
+shortcut = SubResource( 5 )
 
 [sub_resource type="Curve2D" id=1]
 _data = {
@@ -31,6 +72,10 @@ animations = [ {
 "name": "open",
 "speed": 5.0
 } ]
+
+[sub_resource type="DynamicFont" id=15]
+size = 75
+font_data = ExtResource( 23 )
 
 [node name="Main" type="Node2D"]
 position = Vector2( -502, -340 )
@@ -49,6 +94,7 @@ margin_top = -66.0
 margin_right = 722.0
 margin_bottom = 70.0
 disabled = true
+shortcut = SubResource( 4 )
 texture_normal = ExtResource( 4 )
 texture_pressed = ExtResource( 7 )
 
@@ -66,6 +112,7 @@ margin_left = 234.0
 margin_top = -442.0
 margin_right = 377.0
 margin_bottom = -301.0
+action_mode = 0
 texture_normal = ExtResource( 5 )
 
 [node name="LoadBeugels" type="TextureButton" parent="Map"]
@@ -73,6 +120,7 @@ margin_left = 66.0
 margin_top = -442.0
 margin_right = 208.0
 margin_bottom = -300.0
+shortcut = SubResource( 10 )
 texture_normal = ExtResource( 3 )
 texture_pressed = ExtResource( 6 )
 
@@ -82,6 +130,7 @@ margin_top = -438.0
 margin_right = 30.0
 margin_bottom = -302.0
 rect_pivot_offset = Vector2( 52, -137 )
+shortcut = SubResource( 12 )
 texture_normal = ExtResource( 4 )
 texture_pressed = ExtResource( 7 )
 
@@ -109,8 +158,41 @@ margin_top = 127.0
 margin_right = 726.0
 margin_bottom = 269.0
 disabled = true
+shortcut = SubResource( 14 )
 texture_normal = ExtResource( 3 )
 texture_pressed = ExtResource( 6 )
+
+[node name="Score" type="Label" parent="Map"]
+margin_left = 578.0
+margin_top = -379.0
+margin_right = 740.0
+margin_bottom = -351.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "0"
+align = 1
+valign = 1
+
+[node name="poortjesopen" type="Button" parent="Map"]
+visible = false
+margin_right = 12.0
+margin_bottom = 20.0
+shortcut = SubResource( 8 )
+
+[node name="poortjesdicht" type="Button" parent="Map"]
+visible = false
+margin_right = 12.0
+margin_bottom = 20.0
+shortcut = SubResource( 6 )
+
+[node name="Indienen" type="Button" parent="Map"]
+margin_left = 566.0
+margin_top = -338.0
+margin_right = 752.0
+margin_bottom = -292.0
+focus_mode = 0
+enabled_focus_mode = 0
+icon = ExtResource( 21 )
+flat = true
 
 [node name="DelayTimer" type="Timer" parent="."]
 wait_time = 3.0
@@ -122,11 +204,21 @@ wait_time = 5.0
 
 [node name="DelayTimer4" type="Timer" parent="."]
 
+[node name="DelayTimer5" type="Timer" parent="."]
+
+[node name="DelayTimer6" type="Timer" parent="."]
+
+[node name="DelayTimer7" type="Timer" parent="."]
+wait_time = 10.0
+
+[node name="DelayTimer8" type="Timer" parent="."]
+
+[node name="DelayTimer9" type="Timer" parent="."]
+
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 13 )
 
 [node name="Instellingen" type="Sprite" parent="."]
-visible = false
 position = Vector2( 1253, 825 )
 texture = ExtResource( 8 )
 
@@ -140,31 +232,42 @@ texture_normal = ExtResource( 9 )
 texture_pressed = ExtResource( 10 )
 
 [node name="InstellingenSpel" type="Button" parent="Instellingen"]
-margin_left = -120.0
+margin_left = -126.0
 margin_top = 171.0
 margin_right = 130.0
 margin_bottom = 221.0
-text = "Naar spel"
+focus_mode = 0
+enabled_focus_mode = 0
+icon = ExtResource( 19 )
+flat = true
+align = 0
 
 [node name="InstellingenShort" type="Button" parent="Instellingen"]
-margin_left = -120.0
+margin_left = -126.0
 margin_top = 110.0
-margin_right = 130.0
-margin_bottom = 160.0
-text = "Shortcuts"
+margin_right = 136.0
+margin_bottom = 166.0
+focus_mode = 0
+enabled_focus_mode = 0
+icon = ExtResource( 20 )
+flat = true
+icon_align = 1
 
 [node name="Shortcuts" type="Sprite" parent="Instellingen"]
-visible = false
 texture = ExtResource( 11 )
 
 [node name="ShortcutsSluiten" type="Button" parent="Instellingen/Shortcuts"]
-margin_left = -120.0
+margin_left = -126.0
 margin_top = 185.0
-margin_right = 130.0
-margin_bottom = 235.0
-text = "Sluiten"
+margin_right = 136.0
+margin_bottom = 241.0
+focus_mode = 0
+enabled_focus_mode = 0
+icon = ExtResource( 19 )
+flat = true
 
 [node name="Path2D" type="Path2D" parent="."]
+visible = false
 curve = SubResource( 1 )
 script = ExtResource( 12 )
 __meta__ = {
@@ -371,6 +474,7 @@ rotation = -1.58761
 rotation = 1.5708
 frames = SubResource( 2 )
 animation = "open"
+frame = 1
 
 [node name="T5V2" type="PathFollow2D" parent="Path2D"]
 position = Vector2( 1467, 978 )
@@ -380,6 +484,7 @@ rotation = -1.58761
 rotation = 1.5708
 frames = SubResource( 2 )
 animation = "open"
+frame = 1
 
 [node name="T5V3" type="PathFollow2D" parent="Path2D"]
 position = Vector2( 1467, 978 )
@@ -389,6 +494,7 @@ rotation = -1.58761
 rotation = 1.5708
 frames = SubResource( 2 )
 animation = "open"
+frame = 1
 
 [node name="T5V4" type="PathFollow2D" parent="Path2D"]
 position = Vector2( 1467, 978 )
@@ -398,12 +504,57 @@ rotation = -1.58761
 rotation = 1.5708
 frames = SubResource( 2 )
 animation = "open"
+frame = 1
 
 [node name="T5VL" type="PathFollow2D" parent="Path2D"]
 position = Vector2( 1467, 978 )
 rotation = -1.58761
 
 [node name="Sprite" type="Sprite" parent="Path2D/T5VL"]
+rotation = 1.5708
+texture = ExtResource( 15 )
+
+[node name="T6V1" type="PathFollow2D" parent="Path2D"]
+position = Vector2( 1467, 978 )
+rotation = -1.58761
+
+[node name="Voertuig" type="AnimatedSprite" parent="Path2D/T6V1"]
+rotation = 1.5708
+frames = SubResource( 2 )
+animation = "open"
+
+[node name="T6V2" type="PathFollow2D" parent="Path2D"]
+position = Vector2( 1467, 978 )
+rotation = -1.58761
+
+[node name="Voertuig" type="AnimatedSprite" parent="Path2D/T6V2"]
+rotation = 1.5708
+frames = SubResource( 2 )
+animation = "open"
+
+[node name="T6V3" type="PathFollow2D" parent="Path2D"]
+position = Vector2( 1467, 978 )
+rotation = -1.58761
+
+[node name="Voertuig" type="AnimatedSprite" parent="Path2D/T6V3"]
+rotation = 1.5708
+frames = SubResource( 2 )
+animation = "open"
+
+[node name="T6V4" type="PathFollow2D" parent="Path2D"]
+position = Vector2( 1467, 978 )
+rotation = -1.58761
+
+[node name="Voertuig" type="AnimatedSprite" parent="Path2D/T6V4"]
+rotation = 1.5708
+frames = SubResource( 2 )
+animation = "open"
+
+[node name="T6VL" type="PathFollow2D" parent="Path2D"]
+position = Vector2( 1467, 978 )
+rotation = -1.58761
+
+[node name="Sprite" type="Sprite" parent="Path2D/T6VL"]
 rotation = 1.5708
 texture = ExtResource( 15 )
 
@@ -425,6 +576,98 @@ position = Vector2( 0, 6 )
 rotation = 1.5708
 texture = ExtResource( 18 )
 
+[node name="Links2" type="Node2D" parent="Poortjes"]
+position = Vector2( 1503, 875 )
+
+[node name="Sprite" type="Sprite" parent="Poortjes/Links2"]
+position = Vector2( 0, -6 )
+rotation = 1.5708
+texture = ExtResource( 18 )
+
+[node name="Rechts2" type="Node2D" parent="Poortjes"]
+position = Vector2( 1503, 849 )
+
+[node name="Sprite" type="Sprite" parent="Poortjes/Rechts2"]
+position = Vector2( 0, 6 )
+rotation = 1.5708
+texture = ExtResource( 18 )
+
+[node name="Links3" type="Node2D" parent="Poortjes"]
+position = Vector2( 1503, 829 )
+
+[node name="Sprite" type="Sprite" parent="Poortjes/Links3"]
+position = Vector2( 0, -6 )
+rotation = 1.5708
+texture = ExtResource( 18 )
+
+[node name="Rechts3" type="Node2D" parent="Poortjes"]
+position = Vector2( 1503, 803 )
+
+[node name="Sprite" type="Sprite" parent="Poortjes/Rechts3"]
+position = Vector2( 0, 6 )
+rotation = 1.5708
+texture = ExtResource( 18 )
+
+[node name="Links4" type="Node2D" parent="Poortjes"]
+position = Vector2( 1503, 785 )
+
+[node name="Sprite" type="Sprite" parent="Poortjes/Links4"]
+position = Vector2( 0, -6 )
+rotation = 1.5708
+texture = ExtResource( 18 )
+
+[node name="Rechts4" type="Node2D" parent="Poortjes"]
+position = Vector2( 1503, 759 )
+
+[node name="Sprite" type="Sprite" parent="Poortjes/Rechts4"]
+position = Vector2( 0, 6 )
+rotation = 1.5708
+texture = ExtResource( 18 )
+
+[node name="Eindscherm" type="Sprite" parent="."]
+visible = false
+position = Vector2( 1256, 814 )
+texture = ExtResource( 22 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="TijdGespeeld" type="Label" parent="Eindscherm"]
+margin_left = -754.0
+margin_top = -7.0
+margin_right = 753.0
+margin_bottom = 105.0
+custom_fonts/font = SubResource( 15 )
+text = "Bla bla"
+align = 1
+
+[node name="TreinenVrijgegeven" type="Label" parent="Eindscherm"]
+margin_left = -753.0
+margin_top = 180.0
+margin_right = 754.0
+margin_bottom = 292.0
+custom_fonts/font = SubResource( 15 )
+text = "Bla bla"
+align = 1
+
+[node name="PersonenPerUur" type="Label" parent="Eindscherm"]
+margin_left = -753.0
+margin_top = 361.0
+margin_right = 754.0
+margin_bottom = 473.0
+custom_fonts/font = SubResource( 15 )
+text = "Bla bla"
+align = 1
+
+[node name="Eindscore" type="Label" parent="Eindscherm"]
+margin_left = -752.0
+margin_top = -201.0
+margin_right = 755.0
+margin_bottom = -89.0
+custom_fonts/font = SubResource( 15 )
+text = "Bla bla"
+align = 1
+
 [connection signal="stationvrijgeven" from="." to="Path2D" method="_on_Main_stationvrijgeven"]
 [connection signal="uitstationvrijgeven" from="." to="Path2D" method="_on_Main_uitstationvrijgeven"]
 [connection signal="button_down" from="Map/UnloadVrijgeven1" to="." method="_on_UnloadVrijgeven1_button_down"]
@@ -438,18 +681,17 @@ texture = ExtResource( 18 )
 [connection signal="button_down" from="Map/LoadVrijgeven2" to="." method="_on_LoadVrijgeven2_button_down"]
 [connection signal="button_up" from="Map/LoadVrijgeven2" to="." method="_on_LoadVrijgeven2_button_up"]
 [connection signal="pressed" from="Map/Button" to="." method="_on_Button_pressed"]
-[connection signal="pressed" from="Map/Button" to="Instellingen" method="_on_Button_pressed"]
 [connection signal="pressed" from="Map/UnloadBeugels" to="." method="_on_UnloadBeugels_pressed"]
+[connection signal="pressed" from="Map/poortjesopen" to="." method="_on_poortjesopen_pressed"]
+[connection signal="pressed" from="Map/poortjesdicht" to="." method="_on_poortjesdicht_pressed"]
+[connection signal="pressed" from="Map/Indienen" to="." method="_on_Indienen_pressed"]
 [connection signal="timeout" from="DelayTimer" to="Path2D" method="_on_DelayTimer_timeout"]
+[connection signal="timeout" from="DelayTimer5" to="." method="_on_DelayTimer5_timeout"]
+[connection signal="timeout" from="DelayTimer7" to="." method="_on_DelayTimer7_timeout"]
 [connection signal="toggled" from="Instellingen/TextureButton" to="." method="_on_TextureButton_toggled"]
-[connection signal="toggled" from="Instellingen/TextureButton" to="." method="_on_TextureButtonuit_toggled"]
 [connection signal="pressed" from="Instellingen/InstellingenSpel" to="." method="_on_InstellingenSpel_pressed"]
-[connection signal="pressed" from="Instellingen/InstellingenSpel" to="Instellingen" method="_on_InstellingenSpel_pressed"]
 [connection signal="pressed" from="Instellingen/InstellingenShort" to="." method="_on_InstellingenShort_pressed"]
-[connection signal="pressed" from="Instellingen/InstellingenShort" to="Instellingen" method="_on_InstellingenShort_pressed"]
 [connection signal="pressed" from="Instellingen/Shortcuts/ShortcutsSluiten" to="." method="_on_ShortcutsSluiten_pressed"]
-[connection signal="pressed" from="Instellingen/Shortcuts/ShortcutsSluiten" to="Instellingen" method="_on_ShortcutsSluiten_pressed"]
-[connection signal="aankomstlaad" from="Path2D" to="." method="_on_Path2D_aankomstlaad"]
 [connection signal="aankomstlaad" from="Path2D" to="." method="_on_aankomstlaad"]
 [connection signal="aankomstuitlaad" from="Path2D" to="." method="_on_aankomstuitlaad"]
 [connection signal="vertreklaad" from="Path2D" to="." method="_on_vertreklaad"]
