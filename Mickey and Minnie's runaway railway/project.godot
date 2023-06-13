@@ -22,9 +22,10 @@ default_bus_layout=""
 
 window/size/width=1508
 window/size/height=946
+window/size/resizable=false
 window/size/always_on_top=true
 window/stretch/mode="viewport"
-window/stretch/aspect="expand"
+window/stretch/aspect="keep"
 
 [global]
 
