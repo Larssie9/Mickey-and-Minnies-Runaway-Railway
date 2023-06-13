@@ -20,7 +20,7 @@ var _scoretimer = false
 var laadtrein = 6
 var uitlaadtrein = 1
 var t = 0
-var score = 0
+var score = 1000
 var totalscore = 0
 var time = 0
 var seconde = 0
@@ -357,6 +357,7 @@ func _on_poortjesopen_pressed():
 
 func _on_poortjesdicht_pressed():
 	if (_station && (_loadbeugels == false)):
+		print("debug")
 		if (_poortjes == false) && _throttle:
 			$Map/LoadPoortjes.texture_normal = icon1
 			_poortjes = true
@@ -380,3 +381,11 @@ func _on_Indienen_pressed():
 	pph = ((vrijgegeventreinen * 24) * ((3600 - time)/time))
 	$Eindscherm/TreinenVrijgegeven.text = str(vrijgegeventreinen)
 	$Eindscherm/PersonenPerUur.text = str(pph)
+
+
+func _on_Eindsluiten_pressed():
+	$Eindscherm.visible = false
+
+
+func _on_Vragenlijst_pressed():
+	OS.shell_open("https://docs.google.com/forms/d/e/1FAIpQLSc5pWGPvL1oYVuu7ttcji2699_HJZAQJI7ZjRj7BpdjyHeaIg/viewform?usp=sf_link")

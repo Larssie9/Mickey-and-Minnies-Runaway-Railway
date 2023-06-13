@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=2]
+[gd_scene load_steps=40 format=2]
 
 [ext_resource path="res://Media/Runaway-Railway-layout09-690x460-1.png" type="Texture" id=1]
 [ext_resource path="res://Main.gd" type="Script" id=2]
@@ -23,6 +23,7 @@
 [ext_resource path="res://Media/Indienen.png" type="Texture" id=21]
 [ext_resource path="res://Media/Einde.png" type="Texture" id=22]
 [ext_resource path="res://Media/Xolonium-Regular.ttf" type="DynamicFontData" id=23]
+[ext_resource path="res://Media/Vragenlijst.png" type="Texture" id=24]
 
 [sub_resource type="InputEventAction" id=3]
 action = "uitlaadvrijgeven"
@@ -640,7 +641,6 @@ rotation = 1.5708
 texture = ExtResource( 18 )
 
 [node name="Eindscherm" type="Sprite" parent="."]
-visible = false
 position = Vector2( 1256, 814 )
 texture = ExtResource( 22 )
 __meta__ = {
@@ -683,6 +683,22 @@ custom_fonts/font = SubResource( 15 )
 text = "Bla bla"
 align = 1
 
+[node name="Eindsluiten" type="Button" parent="Eindscherm"]
+margin_left = 450.0
+margin_top = 380.0
+margin_right = 712.0
+margin_bottom = 436.0
+icon = ExtResource( 19 )
+flat = true
+
+[node name="Vragenlijst" type="Button" parent="Eindscherm"]
+margin_left = -700.0
+margin_top = 380.0
+margin_right = -438.0
+margin_bottom = 436.0
+icon = ExtResource( 24 )
+flat = true
+
 [connection signal="stationvrijgeven" from="." to="Path2D" method="_on_Main_stationvrijgeven"]
 [connection signal="uitstationvrijgeven" from="." to="Path2D" method="_on_Main_uitstationvrijgeven"]
 [connection signal="button_down" from="Map/UnloadVrijgeven1" to="." method="_on_UnloadVrijgeven1_button_down"]
@@ -711,3 +727,5 @@ align = 1
 [connection signal="aankomstuitlaad" from="Path2D" to="." method="_on_aankomstuitlaad"]
 [connection signal="vertreklaad" from="Path2D" to="." method="_on_vertreklaad"]
 [connection signal="vertrekuitlaad" from="Path2D" to="." method="_on_vertrekuitlaad"]
+[connection signal="pressed" from="Eindscherm/Eindsluiten" to="." method="_on_Eindsluiten_pressed"]
+[connection signal="pressed" from="Eindscherm/Vragenlijst" to="." method="_on_Vragenlijst_pressed"]
