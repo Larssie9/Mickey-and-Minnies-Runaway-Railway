@@ -10,9 +10,10 @@ config_version=4
 
 [application]
 
-config/name="Operator"
+config/name="Mickey and Minnie's Runaway Railway"
 run/main_scene="res://Main.tscn"
 config/icon="res://icon.png"
+config/windows_native_icon="res://icon.ico"
 
 [audio]
 

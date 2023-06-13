@@ -39,11 +39,9 @@ func _ready():
 	timestart = OS.get_unix_time()
 
 func _process(delta):
-	if _scoretimer:
+	if _scoretimer && (score > 0):
 		t += delta
 		score -= (t / 5)
-		if (score < 0):
-			score = 0
 	if (_scoretimer == false):
 		t = 0
 		score = 1000
