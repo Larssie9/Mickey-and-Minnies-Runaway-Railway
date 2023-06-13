@@ -42,7 +42,6 @@ func _process(delta):
 	if _scoretimer:
 		t += delta
 		score -= (t / 5)
-		print(score)
 		if (score < 0):
 			score = 0
 	if (_scoretimer == false):
