@@ -180,9 +180,10 @@ margin_top = -379.0
 margin_right = 740.0
 margin_bottom = -351.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "0"
+text = "WACHTEN BIJ UITLAAD IS KAPOT"
 align = 1
 valign = 1
+autowrap = true
 
 [node name="poortjesopen" type="Button" parent="Map"]
 margin_left = -833.0
