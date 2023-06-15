@@ -238,7 +238,6 @@ wait_time = 10.0
 stream = ExtResource( 13 )
 
 [node name="Instellingen" type="Sprite" parent="."]
-visible = false
 position = Vector2( 1253, 825 )
 texture = ExtResource( 8 )
 
