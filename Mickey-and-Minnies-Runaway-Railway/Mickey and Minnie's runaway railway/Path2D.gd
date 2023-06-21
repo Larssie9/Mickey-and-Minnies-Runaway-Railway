@@ -38,49 +38,49 @@ signal vertrekuitlaad
 signal aankomstlaad
 signal aankomstuitlaad
 
-func _on_Main_uitstationvrijgeven():
+func _on_Main_uitstationvrijgeven(): ##Verwerkt vrijgave uitlaadstation
 	_uitstationvrijgeven = true
 
-func _on_Main_stationvrijgeven():
+func _on_Main_stationvrijgeven(): ##Verwerkt vrijgave laadstation
 	_stationvrijgeven = true
 
 func _process(delta):
 	## Trein 1
-	if _go1:
+	if _go1: ##Kijkt of hij kan gaan
 		t1 += delta
 		offset1 = t1 * 25
-		if offset1 >= 3731.89:
+		if offset1 >= 3731.89: ##Tijd resetten bij einde path
 			t1 = 0
 	$T1V1.offset = offset1
 	$T1V2.offset = offset1 + 45
 	$T1V3.offset = offset1 + 90
 	$T1V4.offset = offset1 + 135
 	$T1VL.offset = offset1 + 180
-	if ((_uitstation1 == true) && (_station1 == true)):
-		if (offset1 > (offset5 - 250)):
-			if (offset1 > (offset5 - 200)):
+	if ((_uitstation1 == true) && (_station1 == true)): ##Kijken of hij niet in station zit
+		if (offset1 > (offset5 - 250)): ##Kijken of hij een offset van minstens 250 van zijn voorganger af zit
+			if (offset1 > (offset5 - 200)): ##Extra check voor bij einde path
 				_go1 = true
 			else:
 				_go1 = false
 		else:
 			_go1 = true
 	#laadstation
-	if (((offset1 >= 72)&&(offset1 <= 82)&&_station1)):
+	if (((offset1 >= 72)&&(offset1 <= 82)&&_station1)): ##Kijkt of trein in laadstation is
 		_station1 = false
 		_go1 = false
 		emit_signal("aankomstlaad")
 	if ((offset1 >= 92)&&(offset1 <= 102)):
 		_station1 = true
-	if ((_station1 == false) && (_stationvrijgeven == true)):
+	if ((_station1 == false) && (_stationvrijgeven == true)): ##Kijkt of trein kan vrijgeven
 		_go1 = true
 		_stationvrijgeven = false
 		emit_signal("vertreklaad")
 	#uitlaadstation
-	if (((offset1 >= 3350)&&(offset1 <= 3360))&&_uitstation1):
+	if (((offset1 >= 3350)&&(offset1 <= 3360))&&_uitstation1): ##Kijkt of trein in uitlaadstation is
 		_uitstation1 = false
 		_go1 = false
 		emit_signal("aankomstuitlaad")
-	if ((_uitstation1 == false) && (_uitstationvrijgeven == true)):
+	if ((_uitstation1 == false) && (_uitstationvrijgeven == true)): ##Kijkt of trein kan vrijgeven
 		_go1 = true
 		_uitstationvrijgeven = false
 	if ((offset1 >= 3380)&&(offset1 <= 3390)):
